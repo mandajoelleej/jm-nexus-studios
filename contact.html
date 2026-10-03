@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — JM Nexus Studios</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="contact-page">
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header id="navbar">
+    <div class="container">
+      <a class="nav-logo" href="index.html"><img src="" alt="JM Nexus Studios" /></a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary"></nav>
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Theme">☀</button>
+        <a href="contact.html" class="btn-order"></a>
+        <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="contact-hero" class="container">
+    <div class="hero-grid">
+
+      <!-- LEFT: hero text -->
+      <div class="ch-left">
+        <span class="hero-pill"><span class="dot"></span>GET IN TOUCH</span>
+        <h1 class="ch-title">Let's Create<br><span class="grad">Something Amazing</span></h1>
+        <p class="ch-desc">
+          We'd love to hear from you! Whether you have a project, a collaboration idea,
+          or just want to say hello — reach out to us.
+        </p>
+
+        <div class="feature-chips" id="feature-chips"></div>
+      </div>
+
+      <!-- CENTER: hero visual -->
+      <div class="ch-center">
+        <img id="hero-visual" alt="JM Nexus Studios workspace" />
+        <div class="ch-visual-glow"></div>
+      </div>
+
+      <!-- RIGHT: Our Channel + Follow Us -->
+      <div class="ch-right">
+        <aside class="channel-card" id="channel-card"></aside>
+        <aside class="follow-card" id="follow-card"></aside>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== MAIN CONTACT AREA ==================== -->
+  <section id="contact-main" class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT COLUMN -->
+      <div class="cm-left">
+
+        <!-- Our Contact -->
+        <div class="panel">
+          <h3>Our Contact</h3>
+          <p class="panel-sub">Reach out to us through any of these channels.</p>
+          <div class="contact-cards" id="contact-cards"></div>
+        </div>
+
+        <!-- Our Social Media -->
+        <div class="panel">
+          <h3>Our Social Media</h3>
+          <p class="panel-sub">Follow us for the latest updates, behind the scenes and creative content.</p>
+          <div class="social-grid" id="social-grid"></div>
+        </div>
+
+        <!-- What We Do -->
+        <div class="panel">
+          <h3>What We Do <span class="spark">✦</span></h3>
+          <p class="panel-sub">We create digital solutions that bring your ideas to life.</p>
+          <div class="what-grid" id="what-grid"></div>
+        </div>
+
+      </div>
+
+      <!-- MIDDLE COLUMN: Support Our Mission -->
+      <div class="cm-middle">
+        <div class="panel support-panel">
+          <div class="support-head">
+            <span class="support-heart">❤</span>
+            <div>
+              <h3>Support Our Mission</h3>
+              <p class="panel-sub">
+                Donate gadgets, equipment or funds to help us create better content and grow our studio.
+              </p>
+            </div>
+          </div>
+
+          <button class="support-btn" id="donate-now-btn">Donate Now →</button>
+
+          <div class="gadget-grid" id="gadget-grid">
+            <div style="grid-column:1/-1; padding:30px; text-align:center; color:#8A97B0;">Loading gadgets…</div>
+          </div>
+
+          <p class="support-note">
+            Clicking a gadget takes you to an external supplier. You can support by purchasing
+            the equipment and shipping it to us, or by donating directly.
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="cm-right">
+
+        <!-- Our Work -->
+        <div class="panel">
+          <div class="panel-head-row">
+            <h3>Our Work</h3>
+            <a class="panel-link" href="portfolio.html">View All Projects →</a>
+          </div>
+          <p class="panel-sub">Explore some of our recent projects and creative work.</p>
+          <div class="work-grid" id="work-grid"></div>
+        </div>
+
+        <!-- Send Us a Message -->
+        <div class="panel">
+          <h3>Send Us a Message</h3>
+          <p class="panel-sub">Fill out the form below and we'll get back to you shortly.</p>
+
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="field">
+              <span class="f-icon">👤</span>
+              <input type="text" id="f-name" placeholder="Your Name" required />
+            </div>
+            <div class="field">
+              <span class="f-icon">✉</span>
+              <input type="email" id="f-email" placeholder="Your Email" required />
+            </div>
+            <div class="field">
+              <span class="f-icon">✎</span>
+              <input type="text" id="f-subject" placeholder="Subject" />
+            </div>
+            <div class="field field-area">
+              <textarea id="f-message" rows="4" placeholder="Your Message..." required></textarea>
+            </div>
+            <button type="submit" class="send-btn" id="send-btn">
+              <span id="send-label">Send Message</span> <span class="arr">→</span>
+            </button>
+            <p class="form-msg" id="form-msg" hidden></p>
+          </form>
+        </div>
+
+        <!-- Find Us on Map + Business Hours -->
+        <div class="panel">
+          <h3>Find Us on Map</h3>
+          <div class="map-card">
+            <div class="map-embed" id="map-embed"></div>
+            <a class="map-address" id="map-link" href="#" target="_blank" rel="noopener">
+              <span class="pin">◉</span>
+              <div>
+                <strong id="map-city">Jinja, Uganda</strong>
+                <em id="map-street">Lubas Road / Bugembe</em>
+              </div>
+              <span class="map-go">→</span>
+            </a>
+          </div>
+
+          <h4 class="hours-title">Business Hours</h4>
+          <div class="hours-list" id="hours-list"></div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CTA BANNER ==================== -->
+  <section id="cta" class="container">
+    <span class="cta-icon">✈</span>
+    <div class="cta-text">
+      <h3>Let's Build Something <span class="grad">Together</span></h3>
+      <p>Have a project in mind? Need a custom solution? We're here to help!</p>
+    </div>
+    <a class="btn btn-primary" href="contact.html">Contact Us <span class="arr">→</span></a>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-logo" href="index.html"><img src="" alt="JM Nexus Studios" /></a>
+          <p id="footer-desc"></p>
+          <div class="footer-socials" id="footer-socials"></div>
+          <div class="footer-tagline" id="footer-tagline"></div>
+        </div>
+        <div><h5>Quick Links</h5><div id="footer-nav"></div></div>
+        <div><h5>Our Services</h5><div id="footer-services"></div></div>
+        <div><h5>Contact Info</h5><div id="footer-contact"></div></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> JM Nexus Studios. All rights reserved.</span>
+        <span>Creative Solutions for a Better Tomorrow</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== DONATE MODAL ==================== -->
+  <div id="donate-backdrop" class="modal-backdrop" hidden></div>
+
+  <div id="donate-modal" class="modal" hidden>
+    <button class="modal-close" id="donate-close" aria-label="Close">✕</button>
+
+    <h3 class="modal-title">Support Our Mission</h3>
+    <p class="modal-sub">Choose how you'd like to support JM Nexus Studios.</p>
+
+    <div class="type-tabs" id="donate-tabs">
+      <button class="type-tab active" data-type="money">💵 Money</button>
+      <button class="type-tab" data-type="gadget">📦 Gadget</button>
+      <button class="type-tab" data-type="other">✦ Other</button>
+    </div>
+
+    <form class="donate-form" id="donate-form" novalidate>
+      <label>Your Name *<input type="text" id="d-name" placeholder="Full name" required /></label>
+      <label>Your Email<input type="email" id="d-email" placeholder="you@example.com" /></label>
+      <label>Your Phone<input type="tel" id="d-phone" placeholder="+256 ..." /></label>
+
+      <div data-type-panel="money">
+        <label>Amount (UGX)<input type="text" id="d-amount" placeholder="e.g. 50000" /></label>
+        <label>Payment Method
+          <select id="d-method">
+            <option value="">Select method</option>
+            <option>MTN Mobile Money</option>
+            <option>Airtel Money</option>
+            <option>Bank Transfer</option>
+            <option>PayPal</option>
+          </select>
+        </label>
+      </div>
+
+      <div data-type-panel="gadget" hidden>
+        <label>Gadget / Equipment
+          <select id="d-gadget">
+            <option value="">Select gadget</option>
+          </select>
+        </label>
+        <p class="donate-hint">We'll send you the shipping address after you submit.</p>
+      </div>
+
+      <div data-type-panel="other" hidden>
+        <label>Describe your support<textarea id="d-other" rows="2" placeholder="How would you like to help?"></textarea></label>
+      </div>
+
+      <label>Message (optional)<textarea id="d-message" rows="2" placeholder="Anything we should know?"></textarea></label>
+
+      <button type="submit" class="send-btn" id="donate-submit">
+        <span id="donate-label">Submit Support</span> <span class="arr">→</span>
+      </button>
+      <p class="form-msg" id="donate-msg" hidden></p>
+    </form>
+  </div>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

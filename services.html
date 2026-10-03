@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070B14" />
+  <title>Services — JM Nexus Studios</title>
+  <meta name="description" content="JM Nexus Studios services — design, 3D, video, VFX, web and more." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&family=Playfair+Display:wght@700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/services.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="services-page">
+
+  <div class="bg-stage" aria-hidden="true">
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header id="navbar">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="index.html">
+        <img src="assets/images/logo.png" alt="JM Nexus Studios" />
+      </a>
+      <nav class="nav-links" id="nav-links"></nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn-order">✈ Start a Project</a>
+        <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menu"><span class="burger"></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu-backdrop" id="mobile-backdrop" hidden></div>
+  <aside class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-head">
+      <span class="mobile-menu-title">Menu</span>
+      <button class="mobile-close" id="mobile-close">✕</button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav"></nav>
+    <a class="mobile-cta" href="contact.html">✈ Start a Project</a>
+  </aside>
+
+  <!-- HERO -->
+  <section id="services-hero" class="container">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <span class="hero-pill"><span class="spark">✦</span> Our Services</span>
+        <h1 class="hero-title" id="hero-title"></h1>
+        <div class="hero-underline"></div>
+        <p class="hero-desc" id="hero-desc"></p>
+        <a class="btn-explore" href="#services-section">Explore Services <span>↓</span></a>
+      </div>
+      <div class="hero-center">
+        <div class="hero-art">
+          <img id="hero-image" alt="JM Nexus Studios" />
+          <div class="hero-art-glow"></div>
+        </div>
+        <div class="hero-tools" id="hero-tools"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTROLS -->
+  <section id="services-controls" class="container">
+    <div class="search-box">
+      <span class="s-icon">⌕</span>
+      <input id="search-input" type="search" placeholder="Search services (logo, video, 3D, poster...)" />
+    </div>
+    <div class="filters" id="filters"></div>
+  </section>
+
+  <!-- GRID -->
+  <section id="services-section" class="container">
+    <div class="section-head">
+      <div>
+        <span class="kicker">Catalog</span>
+        <h2>Choose Your Service</h2>
+        <p class="subtitle">Every service has its own guided order form.</p>
+      </div>
+      <span class="result-count" id="result-count"></span>
+    </div>
+    <div class="services-grid" id="services-grid">
+      <div class="loading-note">Loading services…</div>
+    </div>
+    <div class="no-results" id="no-results" hidden><p>No services match your search.</p></div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="container">
+    <div class="section-head">
+      <div><span class="kicker">How It Works</span><h2>Our Simple Process</h2></div>
+    </div>
+    <div class="process-strip" id="process-strip"></div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="container">
+    <div class="cta-card">
+      <span class="cta-icon">🚀</span>
+      <div class="cta-text">
+        <h3>Have an idea? <span class="grad">Let's build it.</span></h3>
+        <p>We turn your vision into reality with creative design, modern tech and expert support.</p>
+      </div>
+      <a class="btn btn-primary" href="contact.html">Start a Project <span>→</span></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-logo" href="index.html"><img src="" alt="JM Nexus Studios" /></a>
+          <p>Built with creativity ❤ for a better tomorrow.</p>
+        </div>
+        <div><h5>Quick Links</h5><div id="footer-nav"></div></div>
+        <div><h5>Our Services</h5><div id="footer-services"></div></div>
+        <div><h5>Contact</h5><div id="footer-contact"></div></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> JM Nexus Studios. All rights reserved.</span>
+        <span class="footer-sign">Design · Build · Inspire</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DRAWER -->
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <button class="drawer-close" id="drawer-close" aria-label="Close">✕</button>
+    <div class="drawer-scroll" id="drawer-scroll"></div>
+  </aside>
+
+  <!-- SOFTWARE POPOVER -->
+  <div id="software-popover" class="software-popover" hidden>
+    <button class="sw-close" id="software-close">✕</button>
+    <div class="sw-body">
+      <div class="sw-logo" id="sw-logo"></div>
+      <h3 id="sw-name"></h3>
+      <p class="sw-desc" id="sw-desc"></p>
+      <div class="sw-uses">
+        <strong>Used for</strong>
+        <p id="sw-uses"></p>
+      </div>
+      <a class="sw-link" id="sw-link" href="#" target="_blank" rel="noopener">Learn more →</a>
+    </div>
+  </div>
+
+  <!-- VIDEO MODAL -->
+  <div id="video-modal" class="video-modal" hidden>
+    <div class="video-modal-box">
+      <button class="video-modal-close" id="video-modal-close">✕</button>
+      <video id="video-modal-player" controls playsinline preload="metadata"></video>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/services.js"></script>
+</body>
+</html>

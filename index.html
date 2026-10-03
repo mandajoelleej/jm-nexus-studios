@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#02040D" />
+  <title>JM Nexus Studios — We Create. We Build. We Inspire.</title>
+  <meta name="description" content="JM Nexus Studios — a creative technology studio for design, 3D, VFX, video, web and robotics." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="home-page">
+
+  <!-- ==================== ANIMATED BG ==================== -->
+  <div class="bg-stage" aria-hidden="true">
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+    <div class="bg-orb orb-4"></div>
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header id="navbar">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="index.html">
+        <img src="assets/images/hero.png" alt="JM Nexus Studios" />
+      </a>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary"></nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Search">⌕</button>
+        <button class="icon-btn" aria-label="Favorites">♡</button>
+        <button class="icon-btn" aria-label="Account">◉</button>
+        <a href="contact.html" class="btn-donate">
+          <span class="heart">❤</span> Donate
+        </a>
+        <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span class="burger"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MOBILE MENU ==================== -->
+  <div class="mobile-menu-backdrop" id="mobile-backdrop" hidden></div>
+  <aside class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-head">
+      <span class="mobile-menu-title">Menu</span>
+      <button class="mobile-close" id="mobile-close" aria-label="Close">✕</button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav"></nav>
+    <a class="mobile-cta" href="contact.html">❤ Donate</a>
+  </aside>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero" class="container">
+    <div class="hero-grid">
+
+      <div class="hero-left">
+        <span class="hero-pill">
+          <span class="spark">✦</span>
+          <span id="hero-pill-text"></span>
+          <span class="spark">✦</span>
+        </span>
+
+        <h1 class="hero-title" id="hero-title"></h1>
+        <div class="hero-underline"></div>
+
+        <p class="hero-desc" id="hero-desc"></p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary" id="hero-primary" href="#"></a>
+          <a class="btn btn-ghost"   id="hero-secondary" href="#"></a>
+        </div>
+
+        <button class="watch-showreel" id="watch-showreel">
+          <span class="play">▶</span>
+          <span>
+            <strong>Watch Showreel</strong>
+            <small>See our creativity in action</small>
+          </span>
+        </button>
+      </div>
+
+      <div class="hero-center">
+        <div id="hero-orbit"></div>
+        <div class="hero-media" id="hero-media"></div>
+        <div class="hero-platform">
+          <span class="ring r1"></span>
+          <span class="ring r2"></span>
+          <span class="ring r3"></span>
+          <span class="ring r4"></span>
+        </div>
+      </div>
+
+      <aside class="hero-services">
+        <h3>What We <span class="grad">Do</span></h3>
+        <div id="hero-services-list"></div>
+      </aside>
+
+    </div>
+
+    <div id="stats" class="reveal">
+      <div class="stats-grid" id="stats-grid"></div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURES STRIP ==================== -->
+  <section id="features" class="container">
+    <div class="feature-strip" id="feature-strip"></div>
+  </section>
+
+  <!-- ==================== FEATURED SERVICES ==================== -->
+  <section id="featured-services" class="container">
+    <div class="section-head">
+      <div class="section-head-left">
+        <span class="kicker">Our Services</span>
+        <h2>Featured Services</h2>
+        <p class="subtitle">
+          Professional creative and tech services to help your brand grow and stand out.
+        </p>
+      </div>
+      <a class="view-all-btn" href="services.html">
+        View All Services <span class="arr">→</span>
+      </a>
+    </div>
+
+    <div class="services-grid" id="services-grid"></div>
+  </section>
+
+  <!-- ==================== FEATURED WORK ==================== -->
+  <section id="featured-work" class="container">
+    <div class="section-head">
+      <div class="section-head-left">
+        <span class="kicker">Portfolio</span>
+        <h2>Our Work — Ideas Forged Into Reality</h2>
+        <p class="subtitle">
+          Explore our latest creative, digital and technology projects.
+        </p>
+      </div>
+      <a class="view-all-btn" href="portfolio.html">
+        View All Projects <span class="arr">→</span>
+      </a>
+    </div>
+
+    <div class="portfolio-grid" id="portfolio-grid"></div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section id="cta" class="container">
+    <div class="cta-card">
+      <span class="cta-icon">🚀</span>
+      <div class="cta-text">
+        <h3>Let's Create Something <span class="grad">Amazing Together</span></h3>
+        <p>Your ideas + Our creativity + Modern technology = Unlimited possibilities.</p>
+      </div>
+      <a class="btn btn-primary" href="contact.html">Get Started <span class="arr">→</span></a>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-logo" href="index.html"><img src="" alt="JM Nexus Studios" /></a>
+          <p>Built with creativity ❤ for a better tomorrow.</p>
+        </div>
+        <div><h5>Quick Links</h5><div id="footer-nav"></div></div>
+        <div><h5>Services</h5><div id="footer-services"></div></div>
+        <div><h5>Contact</h5><div id="footer-contact"></div></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> JM Nexus Studios. All rights reserved.</span>
+        <span class="footer-sign">Design · Build · Inspire</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING ==================== -->
+  <a class="fab-support" href="contact.html#support" aria-label="Support">❤</a>
+  <a class="fab-chat" href="contact.html" aria-label="Chat">💬</a>
+
+  <!-- ==================== VIDEO MODAL ==================== -->
+  <div id="video-modal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="close" id="video-close" aria-label="Close">✕</button>
+      <video id="showreel-video" controls playsinline preload="metadata"></video>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — JM Nexus Studios</title>
+  <meta name="description" content="About JM Nexus Studios — story, values, founder, and what drives us." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header id="navbar">
+    <div class="container">
+      <a class="nav-logo" href="index.html">
+        <img src="" alt="JM Nexus Studios" />
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary"></nav>
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Theme">☀</button>
+        <a href="contact.html" class="btn-order"></a>
+        <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= WHO WE ARE HERO ================= -->
+  <section id="about-hero" class="container">
+    <div class="about-grid">
+
+      <!-- LEFT -->
+      <div class="about-left">
+        <span class="hero-pill">
+          <span class="dot"></span>
+          <span id="about-pill"></span>
+        </span>
+
+        <h1 class="about-title" id="about-title"></h1>
+
+        <p class="about-tagline" id="about-tagline"></p>
+        <p class="about-desc" id="about-desc"></p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary" id="about-primary" href="#"></a>
+          <button class="watch-showreel" id="watch-story">
+            <span class="play">▶</span> Watch Our Story
+          </button>
+        </div>
+      </div>
+
+      <!-- CENTER: Logo + orbit + cylinder platform -->
+      <div class="about-center">
+        <div id="about-orbit"></div>
+
+        <div class="hero-logo-wrap">
+          <img id="about-logo" alt="JM Nexus Studios" />
+        </div>
+
+        <!-- Cylinder platform (like the reference) -->
+        <div class="hero-cylinder">
+          <div class="cyl-top"></div>
+          <div class="cyl-body"></div>
+          <div class="cyl-glow"></div>
+        </div>
+
+        <!-- Rotating "status" ring -->
+        <div class="status-ring" id="status-ring">
+          <svg viewBox="0 0 200 200" class="ring-svg">
+            <defs>
+              <path id="ringPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+            </defs>
+            <text>
+              <textPath href="#ringPath" id="ring-text"></textPath>
+            </text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- RIGHT: Founder card -->
+      <aside class="founder-card">
+        <div class="founder-top">
+          <img id="founder-photo" alt="Founder" />
+          <div>
+            <h4 id="founder-name"></h4>
+            <span id="founder-role"></span>
+          </div>
+        </div>
+
+        <p class="founder-quote" id="founder-quote"></p>
+        <div class="founder-sign" id="founder-sign"></div>
+
+        <div class="founder-socials" id="founder-socials"></div>
+      </aside>
+
+    </div>
+
+    <!-- ================= STATS ================= -->
+    <div id="stats" class="reveal">
+      <div class="stats-grid" id="stats-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= THREE-COLUMN SECTION ================= -->
+  <section id="about-three" class="container">
+    <div class="three-grid">
+
+      <div class="panel reveal">
+        <h3>Our Story <span class="spark">✦</span></h3>
+        <ul class="timeline" id="timeline"></ul>
+      </div>
+
+      <div class="panel reveal">
+        <h3>Our Values <span class="spark">✦</span></h3>
+        <div class="values-grid" id="values-grid"></div>
+      </div>
+
+      <div class="panel drives-panel reveal">
+        <h3>What Drives Us <span class="spark">✦</span></h3>
+        <p class="drives-quote" id="drives-quote"></p>
+        <div class="drives-visual">
+          <img id="drives-image" alt="What drives us" loading="lazy" />
+          <div class="drives-caption">Dream · Design · Deliver</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section id="cta" class="reveal">
+    <span class="cta-icon">✈</span>
+    <h3 id="cta-title"></h3>
+    <a class="btn btn-primary" id="cta-btn" href="#"></a>
+  </section>
+
+  <!-- ================= VIDEO MODAL ================= -->
+  <div id="video-modal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="close" id="video-close" aria-label="Close">✕</button>
+      <video id="story-video" controls playsinline preload="metadata"></video>
+    </div>
+  </div>
+
+  <script src="js/about.js"></script>
+</body>
+</html>

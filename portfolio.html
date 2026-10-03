@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#020513" />
+  <title>Portfolio — JM Nexus Studios</title>
+  <meta name="description" content="JM Nexus Studios portfolio — creative projects across design, 3D, video, VFX, web and technology." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/portfolio.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="portfolio-page">
+
+  <!-- ==================== ANIMATED BG ==================== -->
+  <div class="bg-stage" aria-hidden="true">
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+    <div class="bg-orb orb-4"></div>
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header id="navbar">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="index.html">
+        <img src="assets/images/hero/jm-nexus-logo.webp" alt="JM Nexus Studios" />
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary"></nav>
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Search">⌕</button>
+        <button class="icon-btn" aria-label="Favorites">♡</button>
+        <button class="icon-btn" aria-label="Account">◉</button>
+        <a href="contact.html" class="btn-donate"><span class="heart">❤</span> Donate</a>
+        <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span class="burger"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MOBILE MENU ==================== -->
+  <div class="mobile-menu-backdrop" id="mobile-backdrop" hidden></div>
+  <aside class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-head">
+      <span class="mobile-menu-title">Menu</span>
+      <button class="mobile-close" id="mobile-close" aria-label="Close">✕</button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav"></nav>
+    <a class="mobile-cta" href="contact.html">❤ Donate</a>
+  </aside>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="portfolio-hero" class="container">
+    <div class="hero-grid">
+
+      <div class="hero-left">
+        <span class="hero-pill">
+          <span class="spark">✦</span>
+          <span>Our Portfolio</span>
+          <span class="arr">→</span>
+        </span>
+
+        <h1 class="hero-title" id="hero-title"></h1>
+        <div class="hero-underline"></div>
+
+        <p class="hero-desc" id="hero-desc"></p>
+
+        <div class="hero-stats" id="hero-stats"></div>
+      </div>
+
+      <div class="hero-center">
+        <div class="hero-art">
+          <img id="hero-image" alt="JM Nexus Studios portfolio" />
+          <div class="hero-art-glow"></div>
+        </div>
+        <div class="hero-floats" id="hero-floats"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FILTERS + SEARCH ==================== -->
+  <section id="portfolio-controls" class="container">
+    <div class="filters" id="filters"></div>
+    <div class="search-box">
+      <input id="search-input" type="search" placeholder="Search projects..." />
+      <span class="s-icon">⌕</span>
+    </div>
+  </section>
+
+  <!-- ==================== GRID ==================== -->
+  <section id="portfolio-grid-section" class="container">
+    <div class="project-grid" id="project-grid">
+      <div class="loading-note">Loading projects…</div>
+    </div>
+    <div class="no-results" id="no-results" hidden>
+      <p>No projects match your search.</p>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section id="portfolio-cta" class="container">
+    <div class="cta-card">
+      <div class="cta-visual">
+        <img id="cta-image" alt="Have an idea" />
+        <div class="cta-visual-glow"></div>
+      </div>
+      <div class="cta-text">
+        <h3>Have an idea you'd like to see here?</h3>
+        <p>Let's turn your concept into something real.</p>
+        <a class="btn btn-cta" href="contact.html">Start a Project <span class="arr">→</span></a>
+      </div>
+      <div class="cta-shortcuts" id="cta-shortcuts"></div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-logo" href="index.html"><img src="" alt="JM Nexus Studios" /></a>
+          <p>Built with creativity ❤ for a better tomorrow.</p>
+        </div>
+        <div><h5>Quick Links</h5><div id="footer-nav"></div></div>
+        <div><h5>Categories</h5><div id="footer-services"></div></div>
+        <div><h5>Contact</h5><div id="footer-contact"></div></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> JM Nexus Studios. All rights reserved.</span>
+        <span class="footer-sign">Design · Build · Inspire</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== PROJECT DRAWER ==================== -->
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <button class="drawer-close" id="drawer-close" aria-label="Close">✕</button>
+    <div class="drawer-scroll" id="drawer-scroll"></div>
+  </aside>
+
+  <!-- ==================== SHARE MODAL ==================== -->
+  <div id="share-backdrop" class="share-backdrop" hidden></div>
+  <div id="share-modal" class="share-modal" hidden>
+    <button class="share-close" id="share-close" aria-label="Close">✕</button>
+    <h4>Share this project</h4>
+    <div class="share-actions">
+      <a id="share-whatsapp" class="share-btn whatsapp" href="#" target="_blank" rel="noopener">
+        <span class="icon">💬</span> WhatsApp
+      </a>
+      <a id="share-facebook" class="share-btn facebook" href="#" target="_blank" rel="noopener">
+        <span class="icon">f</span> Facebook
+      </a>
+      <a id="share-tiktok" class="share-btn tiktok" href="#" target="_blank" rel="noopener">
+        <span class="icon">♪</span> TikTok
+      </a>
+      <a id="share-email" class="share-btn email" href="#">
+        <span class="icon">✉</span> Email
+      </a>
+      <button id="share-copy" class="share-btn copy">
+        <span class="icon">🔗</span> Copy Link
+      </button>
+      <button id="share-native" class="share-btn native" hidden>
+        <span class="icon">↗</span> More…
+      </button>
+    </div>
+    <p class="share-hint">Send this project to a friend or client.</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/portfolio.js"></script>
+</body>
+</html>

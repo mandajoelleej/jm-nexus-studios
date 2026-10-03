@@ -1,0 +1,23 @@
+superbase images/
+assets/videos/
+assets/images/services/
+assets/images/hero/
+assets/images/portfolio/
+service-videos/
+*.mp4
+*.mov
+*.webm
+*.mkv
+*.avi
+
+node_modules/
+npm-debug.log*
+
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+
+.env
+.env.local
