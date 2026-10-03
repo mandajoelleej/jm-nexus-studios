@@ -6,8 +6,8 @@
 /* =========================================================
    LOGO CONFIG
    ========================================================= */
-const LOGO_URL = "assets/images/hero/jm-nexus-logo.webp";
-const LOGO_FALLBACK = "assets/images/hero/jm-nexus-logo.png";
+const LOGO_URL = "assets/images/logo.png";
+const LOGO_FALLBACK = "assets/images/logo.png";
 
 /* =========================================================
    FALLBACK SETTINGS
@@ -1328,4 +1328,4 @@ function buildOrderMessage(s, state) {
     if (foot) foot.innerHTML = "";
   }
 
-})();
+})();Remove-Item -Recurse -Force .git

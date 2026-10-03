@@ -5,8 +5,8 @@
 
 const JM_DATA = {
   brand: {
-    navLogo:  "assets/images/hero.png",
-    heroImage: "assets/images/hero/jm-nexus-logo.webp",
+    navLogo:  "assets/images/logo.png",
+    heroImage: "assets/images/3d.png",
     heroVideo: "",            /* set to a .mp4 URL to enable video */
     heroVideoPoster: "assets/images/hero/jm-nexus-logo.webp",
     showreel: "assets/videos/jm-nexus-showreel.mp4",

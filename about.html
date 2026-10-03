@@ -3,46 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070B14" />
   <title>About Us — JM Nexus Studios</title>
   <meta name="description" content="About JM Nexus Studios — story, values, founder, and what drives us." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/about.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
-<body>
+<body class="about-page">
+
+  <div class="bg-stage" aria-hidden="true">
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+    <div class="bg-grid"></div>
+  </div>
 
   <!-- ================= NAVBAR ================= -->
   <header id="navbar">
-    <div class="container">
+    <div class="container nav-inner">
       <a class="nav-logo" href="index.html">
-        <img src="" alt="JM Nexus Studios" />
+        <img src="assets/images/logo.png" alt="JM Nexus Studios" />
       </a>
       <nav class="nav-links" id="nav-links" aria-label="Primary"></nav>
       <div class="nav-actions">
-        <button class="icon-btn" aria-label="Theme">☀</button>
-        <a href="contact.html" class="btn-order"></a>
-        <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menu">☰</button>
+        <a href="contact.html" class="btn-order">✈ Start a Project</a>
+        <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menu">
+          <span class="burger"></span>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- ================= WHO WE ARE HERO ================= -->
+  <div class="mobile-menu-backdrop" id="mobile-backdrop" hidden></div>
+  <aside class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-head">
+      <span class="mobile-menu-title">Menu</span>
+      <button class="mobile-close" id="mobile-close">✕</button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav"></nav>
+    <a class="mobile-cta" href="contact.html">✈ Start a Project</a>
+  </aside>
+
+  <!-- ================= HERO ================= -->
   <section id="about-hero" class="container">
     <div class="about-grid">
 
       <!-- LEFT -->
       <div class="about-left">
         <span class="hero-pill">
-          <span class="dot"></span>
-          <span id="about-pill"></span>
+          <span class="spark">✦</span>
+          <span id="about-pill">Who We Are</span>
         </span>
 
         <h1 class="about-title" id="about-title"></h1>
+        <div class="hero-underline"></div>
 
         <p class="about-tagline" id="about-tagline"></p>
         <p class="about-desc" id="about-desc"></p>
@@ -50,12 +70,16 @@
         <div class="hero-ctas">
           <a class="btn btn-primary" id="about-primary" href="#"></a>
           <button class="watch-showreel" id="watch-story">
-            <span class="play">▶</span> Watch Our Story
+            <span class="play">▶</span>
+            <span>
+              <strong>Watch Our Story</strong>
+              <small>See how we work</small>
+            </span>
           </button>
         </div>
       </div>
 
-      <!-- CENTER: Logo + orbit + cylinder platform -->
+      <!-- CENTER -->
       <div class="about-center">
         <div id="about-orbit"></div>
 
@@ -63,14 +87,12 @@
           <img id="about-logo" alt="JM Nexus Studios" />
         </div>
 
-        <!-- Cylinder platform (like the reference) -->
         <div class="hero-cylinder">
           <div class="cyl-top"></div>
           <div class="cyl-body"></div>
           <div class="cyl-glow"></div>
         </div>
 
-        <!-- Rotating "status" ring -->
         <div class="status-ring" id="status-ring">
           <svg viewBox="0 0 200 200" class="ring-svg">
             <defs>
@@ -83,13 +105,14 @@
         </div>
       </div>
 
-      <!-- RIGHT: Founder card -->
+      <!-- RIGHT — FOUNDER CARD -->
       <aside class="founder-card">
         <div class="founder-top">
           <img id="founder-photo" alt="Founder" />
           <div>
             <h4 id="founder-name"></h4>
             <span id="founder-role"></span>
+            <em class="founder-tags" id="founder-tags"></em>
           </div>
         </div>
 
@@ -101,13 +124,13 @@
 
     </div>
 
-    <!-- ================= STATS ================= -->
+    <!-- STATS -->
     <div id="stats" class="reveal">
       <div class="stats-grid" id="stats-grid"></div>
     </div>
   </section>
 
-  <!-- ================= THREE-COLUMN SECTION ================= -->
+  <!-- ================= THREE COLUMN ================= -->
   <section id="about-three" class="container">
     <div class="three-grid">
 
@@ -134,20 +157,61 @@
   </section>
 
   <!-- ================= CTA ================= -->
-  <section id="cta" class="reveal">
-    <span class="cta-icon">✈</span>
-    <h3 id="cta-title"></h3>
-    <a class="btn btn-primary" id="cta-btn" href="#"></a>
+  <section id="cta" class="container reveal">
+    <div class="cta-card">
+      <span class="cta-icon">✈</span>
+      <div class="cta-text">
+        <h3 id="cta-title"></h3>
+        <p>Let's build something amazing together.</p>
+      </div>
+      <a class="btn btn-primary" id="cta-btn" href="#"></a>
+    </div>
   </section>
 
+  <!-- ================= FOOTER ================= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-logo" href="index.html"><img src="" alt="JM Nexus Studios" /></a>
+          <p>Built with creativity ❤ for a better tomorrow.</p>
+        </div>
+        <div><h5>Quick Links</h5><div id="footer-nav"></div></div>
+        <div><h5>Our Services</h5><div id="footer-services"></div></div>
+        <div><h5>Contact</h5><div id="footer-contact"></div></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> JM Nexus Studios. All rights reserved.</span>
+        <span class="footer-sign">Design · Build · Inspire</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SOFTWARE POPOVER ================= -->
+  <div id="software-popover" class="software-popover" hidden>
+    <button class="sw-close" id="software-close">✕</button>
+    <div class="sw-body">
+      <div class="sw-logo" id="sw-logo"></div>
+      <h3 id="sw-name"></h3>
+      <p class="sw-desc" id="sw-desc"></p>
+      <div class="sw-uses">
+        <strong>Used for</strong>
+        <p id="sw-uses"></p>
+      </div>
+      <a class="sw-link" id="sw-link" href="#" target="_blank" rel="noopener">Learn more →</a>
+    </div>
+  </div>
+
   <!-- ================= VIDEO MODAL ================= -->
-  <div id="video-modal" role="dialog" aria-modal="true">
-    <div class="modal-box">
-      <button class="close" id="video-close" aria-label="Close">✕</button>
+  <div id="video-modal" class="video-modal" hidden>
+    <div class="video-modal-box">
+      <button class="video-modal-close" id="video-close">✕</button>
       <video id="story-video" controls playsinline preload="metadata"></video>
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
   <script src="js/about.js"></script>
 </body>
 </html>
