@@ -1982,3 +1982,27 @@ img, video { max-width: 100%; height: auto; }
   .value-item p { font-size: 11.5px; }
   .drives-caption { font-size: 14px; }
 }
+/* =========================================================
+   GLOBAL VIEWPORT SAFETY — stop phone from zooming out
+   ========================================================= */
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  -webkit-text-size-adjust: 100%;   /* iOS: don't inflate text */
+  text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  min-width: 0;   /* prevents flex/grid children from forcing width */
+}
+
+img, video, iframe, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent long words / URLs from pushing layout wider */
+body { word-wrap: break-word; overflow-wrap: break-word; }
