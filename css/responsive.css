@@ -2006,3 +2006,544 @@ img, video, iframe, svg {
 
 /* Prevent long words / URLs from pushing layout wider */
 body { word-wrap: break-word; overflow-wrap: break-word; }
+/* =========================================================
+   UNIVERSAL DRAWER FIX — applies to Services, Portfolio, Contact
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* Force drawer to be full phone width */
+  .drawer, aside.drawer {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    right: 0 !important;
+    left: 0 !important;
+    border-left: 0 !important;
+  }
+
+  .drawer-scroll {
+    padding: 20px 16px 130px !important;
+  }
+
+  /* Force readable text inside ANY drawer */
+  .drawer p,
+  .drawer li,
+  .drawer span,
+  .drawer label,
+  .drawer .hint,
+  .drawer .dr-field-label,
+  .drawer .dr-step .hint,
+  .drawer .pd-subtitle,
+  .drawer .pd-desc-main,
+  .drawer .pd-desc-block,
+  .drawer .dr-head p,
+  .drawer .dr-preview-desc,
+  .drawer .dr-review-row,
+  .drawer .donate-item p,
+  .drawer .account-row .label,
+  .drawer .sw-uses p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Section headings inside drawer */
+  .drawer h2 { font-size: 20px !important; }
+  .drawer h3 { font-size: 18px !important; }
+  .drawer h4,
+  .drawer h5,
+  .drawer .pd-section h4 { font-size: 16px !important; }
+
+  /* Inputs — big enough to type */
+  .drawer input:not([type="color"]):not([type="radio"]):not([type="checkbox"]),
+  .drawer select,
+  .drawer textarea {
+    font-size: 16px !important; /* 16px prevents iOS zoom-on-focus */
+    padding: 14px 14px !important;
+    min-height: 48px !important;
+    border-radius: 12px !important;
+  }
+  .drawer textarea { min-height: 110px !important; }
+
+  /* Buttons — comfortable tap targets */
+  .drawer button,
+  .drawer .btn,
+  .drawer .btn-primary,
+  .drawer .btn-ghost,
+  .drawer .btn-back,
+  .drawer .btn-buy,
+  .drawer .btn-continue,
+  .drawer .btn-submit,
+  .drawer .sc-btn,
+  .drawer .dr-actions button {
+    min-height: 48px !important;
+    font-size: 14px !important;
+    padding: 12px 20px !important;
+  }
+
+  /* Small pills / chips inside drawer */
+  .drawer .dr-pill,
+  .drawer .filter-btn,
+  .drawer .step-dot,
+  .drawer .dr-progress .step-dot {
+    min-height: 42px !important;
+    font-size: 13px !important;
+    padding: 10px 14px !important;
+  }
+
+  /* Style / palette / font cards */
+  .drawer .dr-style-item,
+  .drawer .dr-palette,
+  .drawer .dr-font-item {
+    padding: 16px !important;
+    border-radius: 14px !important;
+  }
+  .drawer .dr-style-item strong,
+  .drawer .dr-palette strong { font-size: 15px !important; }
+  .drawer .dr-style-item span { font-size: 13px !important; }
+  .drawer .dr-font-sample { font-size: 20px !important; }
+
+  /* Review rows */
+  .drawer .dr-review-row { font-size: 14px !important; padding: 8px 0 !important; }
+  .drawer .dr-review-row strong { font-size: 14px !important; }
+
+  /* Sticky footer inside drawer */
+  .drawer .dr-foot {
+    position: sticky !important;
+    bottom: 0 !important;
+    padding: 14px 16px calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  .drawer .dr-foot .dr-actions {
+    display: flex !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  .drawer .dr-foot .dr-actions > * {
+    flex: 1 !important;
+  }
+}
+
+/* Extra-tight on very small phones */
+@media (max-width: 480px) {
+  .drawer-scroll { padding: 16px 12px 130px !important; }
+  .drawer h2 { font-size: 18px !important; }
+  .drawer h3 { font-size: 17px !important; }
+  .drawer p,
+  .drawer span,
+  .drawer label,
+  .drawer li { font-size: 13.5px !important; }
+  .drawer input,
+  .drawer select,
+  .drawer textarea { font-size: 16px !important; }
+}/* =========================================================
+   UNIVERSAL DRAWER FIX — Services + Portfolio + Contact
+   Forces readable text, big buttons, full-width on phone.
+   Must load LAST to win the cascade.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ---- 1. Drawer = full phone width ---- */
+  #drawer,
+  aside#drawer,
+  .drawer,
+  aside.drawer {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: 0 !important;
+    right: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  /* ---- 2. Scroll area with room for sticky footer ---- */
+  #drawer .drawer-scroll,
+  aside#drawer .drawer-scroll,
+  .drawer .drawer-scroll {
+    padding: 20px 16px 140px !important;
+  }
+
+  /* ---- 3. ALL text inside drawer readable ---- */
+  #drawer p,
+  #drawer span:not(.ic):not(.spark):not(.go),
+  #drawer label,
+  #drawer li,
+  #drawer small,
+  #drawer em,
+  #drawer .hint,
+  #drawer .dr-field-label,
+  #drawer .dr-head p,
+  #drawer .dr-preview-desc,
+  #drawer .dr-review-row,
+  #drawer .pd-subtitle,
+  #drawer .pd-desc-main,
+  #drawer .pd-desc-block,
+  #drawer .pd-metacell .val,
+  #drawer .pd-metacell .lbl,
+  #drawer .pd-step .lbl,
+  #drawer .donate-item p,
+  #drawer .account-row .label,
+  #drawer .account-row .value,
+  #drawer .sw-uses p,
+  #drawer .sw-desc {
+    font-size: 14.5px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Small labels stay small but readable */
+  #drawer .dr-step .hint,
+  #drawer .dr-field-label,
+  #drawer .donate-item .price small,
+  #drawer .stat-item .lbl {
+    font-size: 13px !important;
+  }
+
+  /* ---- 4. Headings ---- */
+  #drawer h2 { font-size: 20px !important; line-height: 1.25 !important; }
+  #drawer h3 { font-size: 18px !important; line-height: 1.3 !important; }
+  #drawer h4,
+  #drawer h5,
+  #drawer .pd-section h4,
+  #drawer .dr-step h4 { font-size: 16px !important; line-height: 1.35 !important; }
+
+  /* ---- 5. Inputs — 16px prevents iOS auto-zoom ---- */
+  #drawer input:not([type="color"]):not([type="radio"]):not([type="checkbox"]):not([type="range"]),
+  #drawer select,
+  #drawer textarea {
+    font-size: 16px !important;
+    padding: 14px 14px !important;
+    min-height: 50px !important;
+    border-radius: 12px !important;
+    line-height: 1.4 !important;
+  }
+  #drawer textarea {
+    min-height: 120px !important;
+    padding-top: 14px !important;
+  }
+
+  /* ---- 6. Buttons — comfortable taps ---- */
+  #drawer button,
+  #drawer a.btn,
+  #drawer .btn,
+  #drawer .btn-primary,
+  #drawer .btn-ghost,
+  #drawer .btn-back,
+  #drawer .btn-buy,
+  #drawer .btn-continue,
+  #drawer .btn-submit,
+  #drawer .sc-btn,
+  #drawer .dr-actions button,
+  #drawer .dr-actions a,
+  #drawer .pd-actions .btn,
+  #drawer .pd-cta-row .btn-primary {
+    min-height: 50px !important;
+    font-size: 14.5px !important;
+    padding: 12px 20px !important;
+    border-radius: 999px !important;
+  }
+
+  /* Small buttons (chips, close, copy, back) */
+  #drawer .drawer-close,
+  #drawer .btn-back,
+  #drawer .account-row .copy,
+  #drawer .dr-pill,
+  #drawer .filter-btn,
+  #drawer .step-dot,
+  #drawer .dr-progress .step-dot,
+  #drawer .qty-stepper button {
+    min-height: 44px !important;
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+  }
+  #drawer .drawer-close {
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+  }
+  #drawer .qty-stepper button {
+    width: 44px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    font-size: 20px !important;
+  }
+  #drawer .qty-stepper input {
+    min-height: 44px !important;
+    font-size: 16px !important;
+    width: 56px !important;
+  }
+
+  /* ---- 7. Progress chips — swipeable row ---- */
+  #drawer .dr-progress {
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 8px !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 18px !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  #drawer .dr-progress::-webkit-scrollbar { display: none !important; }
+  #drawer .dr-progress .step-dot {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  /* ---- 8. Style / palette / font grids → single column ---- */
+  #drawer .dr-style-grid,
+  #drawer .dr-palettes,
+  #drawer .pd-metagrid,
+  #drawer .pd-desc-grid,
+  #drawer .pd-related {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+  #drawer .dr-style-grid,
+  #drawer .dr-palettes {
+    grid-template-columns: 1fr !important;
+  }
+  #drawer .dr-style-item,
+  #drawer .dr-palette,
+  #drawer .dr-font-item {
+    padding: 16px !important;
+    border-radius: 14px !important;
+  }
+  #drawer .dr-style-item strong,
+  #drawer .dr-palette strong { font-size: 15px !important; }
+  #drawer .dr-style-item span,
+  #drawer .dr-font-meta { font-size: 13px !important; }
+  #drawer .dr-font-sample { font-size: 22px !important; }
+
+  /* ---- 9. Upload area ---- */
+  #drawer .dr-upload {
+    padding: 28px 18px !important;
+    border-radius: 14px !important;
+  }
+  #drawer .dr-upload-icon { font-size: 32px !important; }
+  #drawer .dr-upload strong { font-size: 15px !important; }
+  #drawer .dr-upload em { font-size: 13px !important; }
+
+  /* ---- 10. Files list ---- */
+  #drawer .dr-file {
+    padding: 14px !important;
+    gap: 12px !important;
+  }
+  #drawer .dr-file .f-ico {
+    width: 40px !important; height: 40px !important;
+    font-size: 16px !important;
+  }
+  #drawer .dr-file .f-info strong { font-size: 14px !important; }
+  #drawer .dr-file .f-info em { font-size: 12.5px !important; }
+  #drawer .dr-file .f-remove {
+    min-height: 40px !important;
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+  }
+
+  /* ---- 11. Review rows ---- */
+  #drawer .dr-review-section {
+    padding: 16px !important;
+    border-radius: 14px !important;
+    margin-bottom: 12px !important;
+  }
+  #drawer .dr-review-section h5 { font-size: 13px !important; }
+  #drawer .dr-review-row {
+    padding: 8px 0 !important;
+    font-size: 14px !important;
+  }
+  #drawer .dr-review-row strong { font-size: 14px !important; }
+  #drawer .dr-review-section .edit-btn {
+    min-height: 36px !important;
+    padding: 6px 12px !important;
+    font-size: 12.5px !important;
+  }
+
+  /* ---- 12. Sticky drawer footer ---- */
+  #drawer .dr-foot {
+    position: sticky !important;
+    bottom: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    padding: 14px 16px calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    background: rgba(5, 8, 16, 0.98) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-top: 1px solid rgba(0, 217, 255, 0.25) !important;
+    z-index: 20 !important;
+  }
+  #drawer .dr-foot-info {
+    font-size: 13px !important;
+    text-align: center !important;
+  }
+  #drawer .dr-foot-info strong { font-size: 17px !important; }
+  #drawer .dr-actions {
+    display: flex !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  #drawer .dr-actions > * { flex: 1 !important; }
+
+  /* ---- 13. Contact donation specifics ---- */
+  #drawer .donate-item {
+    grid-template-columns: 80px 1fr auto !important;
+    padding: 14px !important;
+    gap: 12px !important;
+  }
+  #drawer .donate-item .thumb {
+    width: 80px !important; height: 80px !important;
+    font-size: 30px !important;
+  }
+  #drawer .donate-item h4 { font-size: 15.5px !important; }
+  #drawer .donate-item p { font-size: 13.5px !important; }
+  #drawer .donate-item .price { font-size: 15px !important; }
+
+  #drawer .dr-preview-image { aspect-ratio: 4 / 3 !important; border-radius: 14px !important; }
+  #drawer .dr-preview-title { font-size: 20px !important; }
+  #drawer .dr-preview-price { font-size: 20px !important; }
+
+  #drawer .dr-total { padding: 16px 18px !important; }
+  #drawer .dr-total strong { font-size: 22px !important; }
+
+  #drawer .account-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    padding: 14px 16px !important;
+  }
+  #drawer .account-row .value { text-align: left !important; word-break: break-all !important; }
+  #drawer .account-row .copy { width: 100% !important; }
+
+  /* ---- 14. Success screen ---- */
+  #drawer .dr-success { padding: 30px 20px !important; }
+  #drawer .dr-success .check {
+    width: 84px !important; height: 84px !important;
+    font-size: 40px !important;
+    margin-bottom: 22px !important;
+  }
+  #drawer .dr-success h3 { font-size: 24px !important; }
+  #drawer .dr-success p { font-size: 14.5px !important; max-width: 100% !important; }
+  #drawer .dr-success-actions {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  #drawer .dr-success-actions a {
+    width: 100% !important;
+    min-height: 50px !important;
+    justify-content: center !important;
+    font-size: 14.5px !important;
+  }
+
+  /* ---- 15. Portfolio media / gallery ---- */
+  #drawer .pd-media {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  #drawer .pd-main { aspect-ratio: 16 / 10 !important; border-radius: 14px !important; }
+  #drawer .pd-thumbs {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    max-height: none !important;
+    gap: 8px !important;
+    padding-bottom: 6px !important;
+    scrollbar-width: none !important;
+  }
+  #drawer .pd-thumbs::-webkit-scrollbar { display: none !important; }
+  #drawer .pd-thumb {
+    width: 72px !important;
+    height: 72px !important;
+    flex-shrink: 0 !important;
+  }
+  #drawer .pd-play {
+    width: 66px !important;
+    height: 66px !important;
+    font-size: 26px !important;
+  }
+  #drawer .pd-title { font-size: 22px !important; line-height: 1.25 !important; }
+  #drawer .pd-badge { font-size: 12.5px !important; padding: 5px 12px !important; }
+  #drawer .pd-year { font-size: 13px !important; }
+
+  /* Portfolio process → vertical */
+  #drawer .pd-process { padding: 18px !important; }
+  #drawer .pd-process-steps {
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+  #drawer .pd-process-steps::before { display: none !important; }
+  #drawer .pd-step {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 14px !important;
+    text-align: left !important;
+  }
+  #drawer .pd-step .num {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 14px !important;
+    flex-shrink: 0 !important;
+  }
+  #drawer .pd-step .lbl { font-size: 14px !important; max-width: none !important; }
+
+  /* Portfolio related grid */
+  #drawer .pd-related {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+  #drawer .pd-rel-item .caption { font-size: 12px !important; }
+
+  /* Portfolio action buttons — stacked */
+  #drawer .pd-actions {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  #drawer .pd-cta-row .btn-primary {
+    min-height: 52px !important;
+    font-size: 15px !important;
+  }
+
+  /* ---- 16. Drawer back button (portfolio) ---- */
+  #drawer .pd-back {
+    min-height: 42px !important;
+    font-size: 13.5px !important;
+    padding: 10px 16px !important;
+    margin-bottom: 14px !important;
+  }
+}
+
+/* =========================================================
+   Extra small phones (≤480)
+   ========================================================= */
+@media (max-width: 480px) {
+  #drawer .drawer-scroll { padding: 16px 12px 150px !important; }
+
+  #drawer h2 { font-size: 18px !important; }
+  #drawer h3 { font-size: 17px !important; }
+  #drawer h4 { font-size: 15px !important; }
+
+  #drawer p,
+  #drawer span:not(.ic):not(.spark),
+  #drawer label,
+  #drawer li,
+  #drawer small,
+  #drawer em { font-size: 14px !important; }
+
+  #drawer input:not([type="color"]):not([type="radio"]):not([type="checkbox"]),
+  #drawer select,
+  #drawer textarea { font-size: 16px !important; }
+
+  #drawer .donate-item { grid-template-columns: 1fr !important; }
+  #drawer .donate-item .thumb {
+    width: 100% !important; height: 140px !important;
+    font-size: 46px !important;
+  }
+
+  #drawer .pd-title { font-size: 20px !important; }
+  #drawer .pd-related { grid-template-columns: 1fr !important; }
+
+  #drawer .dr-success h3 { font-size: 21px !important; }
+  #drawer .dr-success .check { width: 76px !important; height: 76px !important; font-size: 36px !important; }
+}
