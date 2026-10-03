@@ -2546,4 +2546,442 @@ body { word-wrap: break-word; overflow-wrap: break-word; }
 
   #drawer .dr-success h3 { font-size: 21px !important; }
   #drawer .dr-success .check { width: 76px !important; height: 76px !important; font-size: 36px !important; }
+}/* =========================================================
+   FINAL DRAWER OVERRIDE — beats inline styles too
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ---- Kill inline font-sizes by targeting [style] ---- */
+  #drawer [style*="font-size"],
+  #drawer [style*="font-size"] * {
+    font-size: inherit !important;
+  }
+
+  /* ---- Set base readable size on the drawer ---- */
+  #drawer,
+  #drawer .drawer-scroll {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: #F5F7FA !important;
+  }
+
+  /* ---- Universal text sizing inside drawer ---- */
+  #drawer p,
+  #drawer span,
+  #drawer div,
+  #drawer li,
+  #drawer label,
+  #drawer small,
+  #drawer em,
+  #drawer strong,
+  #drawer h1,
+  #drawer h2,
+  #drawer h3,
+  #drawer h4,
+  #drawer h5,
+  #drawer h6,
+  #drawer a,
+  #drawer button,
+  #drawer input,
+  #drawer select,
+  #drawer textarea {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+  }
+
+  /* ---- Specific overrides for structure ---- */
+  #drawer h2 { font-size: 20px !important; line-height: 1.3 !important; }
+  #drawer h3 { font-size: 18px !important; line-height: 1.3 !important; }
+  #drawer h4 { font-size: 16px !important; line-height: 1.35 !important; }
+  #drawer h5 { font-size: 15px !important; }
+  #drawer small { font-size: 13px !important; }
+
+  /* Inputs — iOS safe */
+  #drawer input:not([type="color"]):not([type="radio"]):not([type="checkbox"]):not([type="range"]),
+  #drawer select,
+  #drawer textarea {
+    font-size: 16px !important;
+    min-height: 50px !important;
+    padding: 14px !important;
+    border-radius: 12px !important;
+  }
+  #drawer textarea { min-height: 120px !important; }
+
+  /* Buttons */
+  #drawer button,
+  #drawer a.btn,
+  #drawer .btn,
+  #drawer .btn-primary,
+  #drawer .btn-ghost,
+  #drawer .btn-back,
+  #drawer .btn-buy,
+  #drawer .btn-continue,
+  #drawer .btn-submit,
+  #drawer .sc-btn,
+  #drawer .pd-actions .btn,
+  #drawer .pd-cta-row .btn-primary,
+  #drawer .dr-actions button,
+  #drawer .dr-success-actions a {
+    font-size: 15px !important;
+    min-height: 50px !important;
+    padding: 12px 20px !important;
+  }
+
+  #drawer .drawer-close,
+  #drawer .dr-pill,
+  #drawer .step-dot,
+  #drawer .dr-progress .step-dot,
+  #drawer .filter-btn {
+    font-size: 14px !important;
+    min-height: 44px !important;
+  }
+
+  /* Small texts that MUST stay slightly smaller but readable */
+  #drawer .dr-field-label,
+  #drawer .dr-step .hint,
+  #drawer .dr-head p,
+  #drawer .pd-metacell .lbl,
+  #drawer .pd-step .lbl,
+  #drawer .donate-progress-label,
+  #drawer .account-row .label {
+    font-size: 13px !important;
+  }
+
+  /* Icons and category badges */
+  #drawer .pd-badge,
+  #drawer .sc-badge,
+  #drawer .dr-badge,
+  #drawer .pd-year {
+    font-size: 12.5px !important;
+    padding: 5px 12px !important;
+  }
+
+  /* Donate thumbnails */
+  #drawer .donate-item .thumb {
+    width: 84px !important;
+    height: 84px !important;
+    font-size: 32px !important;
+  }
+  #drawer .donate-item h4 { font-size: 16px !important; }
+  #drawer .donate-item p { font-size: 14px !important; }
+  #drawer .donate-item .price { font-size: 16px !important; }
+
+  /* Review rows and value cells */
+  #drawer .dr-review-row,
+  #drawer .dr-review-row span,
+  #drawer .dr-review-row strong,
+  #drawer .pd-metacell .val,
+  #drawer .pd-desc-main,
+  #drawer .pd-desc-block,
+  #drawer .pd-subtitle,
+  #drawer .dr-preview-desc,
+  #drawer .sw-desc,
+  #drawer .sw-uses p {
+    font-size: 14.5px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* ---- CRITICAL: bottom safe area for sticky footer ---- */
+  #drawer .drawer-scroll {
+    padding: 20px 16px 160px !important;
+  }
+
+  /* ---- Sticky footer ---- */
+  #drawer .dr-foot {
+    position: sticky !important;
+    bottom: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 14px 16px calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    background: rgba(5, 8, 16, 0.98) !important;
+    border-top: 1px solid rgba(0, 217, 255, 0.3) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    z-index: 30 !important;
+  }
+  #drawer .dr-foot-info {
+    font-size: 13.5px !important;
+    text-align: center !important;
+  }
+  #drawer .dr-foot-info strong { font-size: 18px !important; }
+  #drawer .dr-actions {
+    display: flex !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  #drawer .dr-actions > * { flex: 1 !important; }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  #drawer,
+  #drawer .drawer-scroll { font-size: 14.5px !important; }
+
+  #drawer p, #drawer span, #drawer div, #drawer li,
+  #drawer label, #drawer small, #drawer em, #drawer strong,
+  #drawer a, #drawer button {
+    font-size: 14.5px !important;
+  }
+
+  #drawer h2 { font-size: 18px !important; }
+  #drawer h3 { font-size: 17px !important; }
+  #drawer h4 { font-size: 15.5px !important; }
+
+  #drawer .drawer-scroll { padding: 16px 14px 170px !important; }
+
+  #drawer .donate-item { grid-template-columns: 1fr !important; }
+  #drawer .donate-item .thumb {
+    width: 100% !important;
+    height: 150px !important;
+    font-size: 48px !important;
+  }
+  #drawer .pd-related { grid-template-columns: 1fr !important; }
+
+  #drawer .dr-style-grid,
+  #drawer .dr-palettes,
+  #drawer .pd-metagrid,
+  #drawer .pd-desc-grid {
+    grid-template-columns: 1fr !important;
+  }
+}/* =========================================================
+   MOBILE TYPE SCALE — raise all small text to readable sizes
+   Applies to ALL pages. Loaded last. Wins everything.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ---- Base body text ---- */
+  body { font-size: 15px !important; line-height: 1.65 !important; }
+
+  /* ---- Universal minimum: nothing on the page below 14px ---- */
+  p,
+  span,
+  div,
+  li,
+  label,
+  small,
+  em,
+  strong,
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  figcaption,
+  blockquote {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* ---- Headings ---- */
+  h1, .hero-title, .about-title, .sh-title {
+    font-size: 32px !important;
+    line-height: 1.15 !important;
+  }
+  h2, .section-head h2 {
+    font-size: 22px !important;
+    line-height: 1.3 !important;
+  }
+  h3 { font-size: 19px !important; line-height: 1.35 !important; }
+  h4 { font-size: 17px !important; line-height: 1.35 !important; }
+  h5 { font-size: 15.5px !important; line-height: 1.4 !important; }
+
+  /* ---- Small text that can stay smaller but must be readable ---- */
+  .kicker,
+  .hero-pill,
+  .section-head .kicker,
+  .pd-metacell .lbl,
+  .stat .lbl,
+  .stat-item .lbl,
+  .feat-body em,
+  .footer-bottom,
+  .pd-step .lbl,
+  .pd-year,
+  .sc-badge,
+  .pc-cat,
+  .dr-field-label,
+  .card-value,
+  .founder-tags,
+  .donate-progress-label {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* ---- Footer — guaranteed readable ---- */
+  #footer h5 { font-size: 16px !important; }
+  #footer-nav a,
+  #footer-services a,
+  #footer-contact p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 10px !important;
+  }
+  .footer-brand p { font-size: 14.5px !important; line-height: 1.65 !important; }
+  .footer-bottom { font-size: 13.5px !important; }
+  .footer-sign { font-size: 20px !important; }
+
+  /* ---- Cards (Home, Services, Portfolio, Contact) ---- */
+  .service-card h4,
+  .work-card h4,
+  .project-card .pc-title,
+  .card h4,
+  .social-card h4 {
+    font-size: 17px !important;
+    line-height: 1.35 !important;
+  }
+  .service-card p,
+  .work-card .meta p,
+  .project-card .pc-sub,
+  .card-value,
+  .social-card .desc,
+  .social-card .handle {
+    font-size: 14.5px !important;
+    line-height: 1.55 !important;
+  }
+  .service-card .sc-price,
+  .pc-btn,
+  .card-action,
+  .social-card .visit {
+    font-size: 14px !important;
+  }
+
+  /* ---- Hero ---- */
+  .hero-pill { font-size: 13px !important; padding: 8px 16px !important; }
+  .hero-desc,
+  .about-desc,
+  .about-tagline,
+  .sh-subtitle { font-size: 15px !important; line-height: 1.7 !important; }
+  .watch-showreel strong { font-size: 15px !important; }
+  .watch-showreel small { font-size: 13px !important; }
+
+  /* ---- Stats (Home + About) ---- */
+  .stat .num,
+  .stat-item .num { font-size: 22px !important; }
+  .stat .lbl,
+  .stat-item .lbl { font-size: 13px !important; }
+
+  /* ---- Hero services card (Home) ---- */
+  .service-row .s-title { font-size: 15px !important; }
+  .service-row .s-desc { font-size: 13.5px !important; }
+
+  /* ---- Feature strip ---- */
+  .feat-body strong { font-size: 15px !important; }
+  .feat-body em { font-size: 13px !important; }
+
+  /* ---- Services page cards ---- */
+  .sc-title { font-size: 17px !important; line-height: 1.35 !important; }
+  .sc-desc { font-size: 14.5px !important; line-height: 1.55 !important; }
+  .sc-price { font-size: 17px !important; }
+  .sc-price small { font-size: 12.5px !important; }
+  .sc-delivery { font-size: 13px !important; }
+  .sc-btn { font-size: 15px !important; min-height: 46px !important; }
+  .sc-badge { font-size: 12.5px !important; padding: 5px 12px !important; }
+  .filter-btn { font-size: 14px !important; padding: 10px 16px !important; }
+  .search-box input { font-size: 15.5px !important; }
+
+  /* ---- Process steps (Services) ---- */
+  .pstep h5 { font-size: 15.5px !important; }
+  .pstep p { font-size: 14px !important; }
+
+  /* ---- Portfolio page ---- */
+  .pc-title { font-size: 17px !important; }
+  .pc-sub { font-size: 14.5px !important; line-height: 1.55 !important; }
+  .pc-cat { font-size: 12.5px !important; padding: 5px 12px !important; }
+  .pc-btn { font-size: 15px !important; }
+  .hero-stats .stat-item .num { font-size: 17px !important; }
+  .hero-stats .stat-item .lbl { font-size: 12.5px !important; }
+  .cta-text h3 { font-size: 19px !important; }
+  .cta-text p { font-size: 15px !important; }
+  .cta-shortcut span { font-size: 13.5px !important; }
+
+  /* ---- About page panels ---- */
+  .panel h3 { font-size: 18px !important; }
+  .timeline .t-body h4 { font-size: 15px !important; }
+  .timeline .t-body p { font-size: 14.5px !important; line-height: 1.6 !important; }
+  .value-item h5 { font-size: 15px !important; }
+  .value-item p { font-size: 14px !important; line-height: 1.55 !important; }
+  .drives-quote,
+  .founder-quote { font-size: 15px !important; line-height: 1.7 !important; }
+  .founder-top h4 { font-size: 17px !important; }
+  .founder-top span { font-size: 14px !important; }
+  .founder-tags { font-size: 13px !important; }
+  .drives-caption { font-size: 20px !important; }
+
+  /* ---- Contact page ---- */
+  .card h4 { font-size: 17px !important; }
+  .card-value { font-size: 15px !important; }
+  .card-action { font-size: 14.5px !important; }
+  .social-card h4 { font-size: 16px !important; }
+  .social-card .handle { font-size: 13.5px !important; }
+  .social-card .desc { font-size: 14.5px !important; }
+  .social-card .visit { font-size: 14px !important; }
+  .field { font-size: 14.5px !important; }
+  .field input,
+  .field textarea { font-size: 16px !important; }
+  .form-msg { font-size: 14.5px !important; }
+
+  /* ---- CTA cards (all pages) ---- */
+  .cta-card h3, #cta h3 { font-size: 20px !important; line-height: 1.35 !important; }
+  .cta-card p, #cta p { font-size: 15px !important; }
+
+  /* ---- BUTTONS — comfortable everywhere ---- */
+  .btn,
+  .btn-primary,
+  .btn-ghost,
+  .btn-order,
+  .btn-donate,
+  .btn-submit,
+  .btn-explore,
+  .btn-cta,
+  .view-all-btn {
+    font-size: 15px !important;
+    min-height: 48px !important;
+    padding: 12px 22px !important;
+  }
+}
+
+/* =========================================================
+   Extra small phones (≤480) — keep everything readable
+   ========================================================= */
+@media (max-width: 480px) {
+  body { font-size: 14.5px !important; }
+
+  p, span, div, li, label, small, em, strong, a, button,
+  input, select, textarea {
+    font-size: 14.5px !important;
+  }
+
+  h1, .hero-title, .about-title, .sh-title { font-size: 28px !important; }
+  h2, .section-head h2 { font-size: 20px !important; }
+  h3 { font-size: 18px !important; }
+  h4 { font-size: 16px !important; }
+
+  /* Labels that can be small */
+  .kicker, .hero-pill, .pd-metacell .lbl, .stat .lbl,
+  .feat-body em, .dr-field-label, .sc-badge, .pc-cat,
+  .footer-bottom, .donate-progress-label {
+    font-size: 12.5px !important;
+  }
+
+  /* Footer still readable */
+  #footer-nav a, #footer-services a, #footer-contact p { font-size: 14.5px !important; }
+  .footer-brand p { font-size: 14px !important; }
+  .footer-bottom { font-size: 13px !important; }
+
+  /* Cards */
+  .service-card h4, .work-card h4, .pc-title, .card h4, .social-card h4 {
+    font-size: 16px !important;
+  }
+  .service-card p, .work-card .meta p, .pc-sub, .card-value, .social-card .desc {
+    font-size: 14px !important;
+  }
+
+  /* Buttons */
+  .btn, .btn-primary, .btn-ghost, .btn-order, .btn-donate,
+  .btn-submit, .btn-explore, .btn-cta, .view-all-btn {
+    font-size: 14.5px !important;
+    min-height: 46px !important;
+  }
 }
