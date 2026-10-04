@@ -1,17 +1,12 @@
 /* =========================================================
    JM NEXUS STUDIOS — Services Page
-   WhatsApp opens direct chat with full order prefilled
+   Filter chips + product grid + order drawer.
+   No category tiles. No fallbacks.
    ========================================================= */
 
-/* =========================================================
-   LOGO CONFIG
-   ========================================================= */
 const LOGO_URL = "assets/images/logo.png";
 const LOGO_FALLBACK = "assets/images/logo.png";
 
-/* =========================================================
-   FALLBACK SETTINGS
-   ========================================================= */
 const FALLBACK_SETTINGS = {
   whatsapp_number: "+256 773 486 604",
   whatsapp_link: "https://wa.me/256773486604",
@@ -48,9 +43,7 @@ const STEPS = [
   { id: 7, label: "Review" }
 ];
 
-/* =========================================================
-   HELPERS
-   ========================================================= */
+/* ---------- Helpers ---------- */
 function $(id) { return document.getElementById(id); }
 function formatUGX(n) { return "UGX " + Number(n || 0).toLocaleString("en-UG"); }
 function isVideoUrl(str) {
@@ -73,14 +66,10 @@ function defaultFields() {
     { key: "description", label: "Description", type: "textarea", required: true }
   ];
 }
-
-/* Strip non-digits from a phone number for wa.me links */
 function cleanPhone(num) {
   if (!num) return "";
   return String(num).replace(/[^\d]/g, "");
 }
-
-/* ---------- Safe logo loader ---------- */
 function loadLogos() {
   document.querySelectorAll(".nav-logo img, #footer .nav-logo img").forEach(img => {
     let triedFallback = false;
@@ -150,7 +139,7 @@ function wireCardVideos() {
 }
 
 /* =========================================================
-   BUILD ORDER MESSAGE (used by WhatsApp + Email)
+   BUILD ORDER MESSAGE
    ========================================================= */
 function buildOrderMessage(s, state) {
   const lines = [
@@ -176,9 +165,7 @@ function buildOrderMessage(s, state) {
   if (state.values.deadline)      projectRows.push(`Deadline:     ${state.values.deadline}`);
   if (state.values.budget)        projectRows.push(`Budget:       ${state.values.budget}`);
 
-  if (projectRows.length) {
-    lines.push("", "── PROJECT ──", ...projectRows);
-  }
+  if (projectRows.length) lines.push("", "── PROJECT ──", ...projectRows);
 
   const creativeRows = [];
   if (state.values.style)        creativeRows.push(`Style:        ${state.values.style}`);
@@ -186,11 +173,8 @@ function buildOrderMessage(s, state) {
   if (state.values.custom_color) creativeRows.push(`Custom Color: ${state.values.custom_color}`);
   if (state.values.font)         creativeRows.push(`Font:         ${state.values.font}`);
 
-  if (creativeRows.length) {
-    lines.push("", "── CREATIVE ──", ...creativeRows);
-  }
+  if (creativeRows.length) lines.push("", "── CREATIVE ──", ...creativeRows);
 
-  /* Any extra form fields not already shown */
   const skipKeys = [
     "contact_name", "contact_email", "contact_phone", "comm",
     "brand_name", "project_name", "description", "deadline",
@@ -204,13 +188,9 @@ function buildOrderMessage(s, state) {
     const val = Array.isArray(v) ? v.join(", ") : v;
     extraRows.push(`${k}: ${val}`);
   });
-  if (extraRows.length) {
-    lines.push("", "── REQUIREMENTS ──", ...extraRows);
-  }
+  if (extraRows.length) lines.push("", "── REQUIREMENTS ──", ...extraRows);
 
-  if (state.values.notes) {
-    lines.push("", "── NOTES ──", state.values.notes);
-  }
+  if (state.values.notes) lines.push("", "── NOTES ──", state.values.notes);
 
   if (state.files.length) {
     lines.push("", "── FILES ──");
@@ -279,20 +259,7 @@ function buildOrderMessage(s, state) {
     }
   } catch (err) { console.warn("Supabase fetch failed:", err); }
 
-  if (!SERVICES.length) {
-    SERVICES = [{
-      id: "1", title: "Graphic Design & Branding", category: "Design",
-      description: "Logos, posters, social media graphics.",
-      price: 30000, price_type: "From",
-      image: "", icon: "◈", icon_tone: "gold",
-      badge: "Popular", delivery: "3–5 days",
-      mockup_images: [], social_examples: [], sample_video: "",
-      form_fields: defaultFields(), tags: []
-    }];
-  }
-  if (!CATEGORIES.length) {
-    CATEGORIES = [...new Set(SERVICES.map(s => s.category))].map((name, i) => ({ id: i + 1, name }));
-  }
+  /* NO FALLBACKS */
 
   /* ---------- NAV ---------- */
   const navLinks = $("nav-links");
@@ -406,13 +373,24 @@ function buildOrderMessage(s, state) {
     if (e.key === "Escape" && swPopover && !swPopover.hidden) swPopover.hidden = true;
   });
 
-  /* ---------- FILTERS ---------- */
+  /* =========================================================
+     FILTER CHIPS
+     ========================================================= */
   const filterRow = $("filters");
   if (filterRow) {
     const cats = ["All", ...CATEGORIES.map(c => c.name)];
     filterRow.innerHTML = cats.map((name, i) =>
       `<button class="filter-btn ${i === 0 ? "active" : ""}" data-filter="${name}">${name}</button>`
     ).join("");
+
+    filterRow.addEventListener("click", e => {
+      const b = e.target.closest(".filter-btn");
+      if (!b) return;
+      currentFilter = b.dataset.filter;
+      filterRow.querySelectorAll(".filter-btn").forEach(x => x.classList.remove("active"));
+      b.classList.add("active");
+      renderServices();
+    });
   }
 
   /* ---------- RENDER SERVICES ---------- */
@@ -495,18 +473,6 @@ function buildOrderMessage(s, state) {
     wireCardVideos();
   }
 
-  /* Filter clicks */
-  if (filterRow) {
-    filterRow.addEventListener("click", e => {
-      const b = e.target.closest(".filter-btn");
-      if (!b) return;
-      filterRow.querySelectorAll(".filter-btn").forEach(x => x.classList.remove("active"));
-      b.classList.add("active");
-      currentFilter = b.dataset.filter;
-      renderServices();
-    });
-  }
-
   /* Search */
   const searchInput = $("search-input");
   if (searchInput) {
@@ -530,6 +496,7 @@ function buildOrderMessage(s, state) {
     });
   }
 
+  /* ---------- Initial render ---------- */
   renderServices();
 
   /* ---------- PROCESS ---------- */
@@ -549,8 +516,8 @@ function buildOrderMessage(s, state) {
   if (fNav) fNav.innerHTML = NAV.map(n => `<a href="${n.href}">${n.label}</a>`).join("");
 
   const fSvc = $("footer-services");
-  if (fSvc) fSvc.innerHTML = SERVICES.slice(0, 6)
-    .map(s => `<a href="services.html">${s.title}</a>`).join("");
+  if (fSvc) fSvc.innerHTML = CATEGORIES.slice(0, 6)
+    .map(c => `<a href="services.html">${c.name}</a>`).join("");
 
   const fContact = $("footer-contact");
   if (fContact) fContact.innerHTML = `
@@ -878,7 +845,7 @@ function buildOrderMessage(s, state) {
   function renderStep5Fields(s) {
     const skip = ["brand_name", "project_name", "description", "reference", "footage"];
     const fields = (s.form_fields || defaultFields()).filter(f => !skip.includes(f.key));
-    if (!fields.length) return '<p style="color:var(--sv-text-2);font-size:13px;">No additional details required.</p>';
+    if (!fields.length) return '<p class="no-fields-note">No additional details required.</p>';
     return fields.map(f => renderField(f)).join("");
   }
 
@@ -1006,15 +973,9 @@ function buildOrderMessage(s, state) {
         galleryVideo.play().catch(err => console.warn("Gallery play failed:", err));
       });
 
-      galleryVideo.addEventListener("play", () => {
-        galleryPlayBtn.classList.add("playing");
-      });
-      galleryVideo.addEventListener("pause", () => {
-        galleryPlayBtn.classList.remove("playing");
-      });
-      galleryVideo.addEventListener("ended", () => {
-        galleryPlayBtn.classList.remove("playing");
-      });
+      galleryVideo.addEventListener("play", () => galleryPlayBtn.classList.add("playing"));
+      galleryVideo.addEventListener("pause", () => galleryPlayBtn.classList.remove("playing"));
+      galleryVideo.addEventListener("ended", () => galleryPlayBtn.classList.remove("playing"));
     }
 
     drawerBody.querySelectorAll("[data-style]").forEach(el => {
@@ -1216,7 +1177,6 @@ function buildOrderMessage(s, state) {
     const btn = $("dr-submit");
     if (btn) { btn.textContent = "Submitting…"; btn.disabled = true; }
 
-    /* Upload files */
     const fileUrls = [];
     for (const f of state.files) {
       try {
@@ -1274,15 +1234,9 @@ function buildOrderMessage(s, state) {
 
   function renderSuccess() {
     const s = state.service;
-
-    /* Build the full message */
     const summary = buildOrderMessage(s, state);
-
-    /* WhatsApp — direct chat with your number */
     const waNumber = cleanPhone(SETTINGS.whatsapp_number || "256773486604");
     const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(summary)}`;
-
-    /* Email */
     const emailTo = SETTINGS.email || "mandajoel12@gmail.com";
     const emailSubject = `JM Nexus Studios — New Order ${state.reference}`;
     const emailUrl = `mailto:${emailTo}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(summary)}`;
@@ -1299,17 +1253,11 @@ function buildOrderMessage(s, state) {
         </p>
 
         <div class="dr-success-actions">
-          <a class="wa" href="${waUrl}" target="_blank" rel="noopener">
-            💬 Send on WhatsApp
-          </a>
-          <a class="email" href="${emailUrl}">
-            ✉ Send by Email
-          </a>
+          <a class="wa" href="${waUrl}" target="_blank" rel="noopener">💬 Send on WhatsApp</a>
+          <a class="email" href="${emailUrl}">✉ Send by Email</a>
         </div>
 
-        <button class="back" id="dr-back-services" style="margin-top:14px;">
-          ← Back to Services
-        </button>
+        <button class="back" id="dr-back-services" style="margin-top:14px;">← Back to Services</button>
 
         <p style="font-size:11.5px;color:#9AA7B8;margin-top:20px;line-height:1.6;">
           A copy has been saved to our system.<br>
@@ -1328,4 +1276,4 @@ function buildOrderMessage(s, state) {
     if (foot) foot.innerHTML = "";
   }
 
-})();Remove-Item -Recurse -Force .git
+})();
